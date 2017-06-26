@@ -1,4 +1,4 @@
-package com.sinzoro.test;
+package com.sinzoro.test.vo;
 
 import lombok.Getter;
 import lombok.Setter;

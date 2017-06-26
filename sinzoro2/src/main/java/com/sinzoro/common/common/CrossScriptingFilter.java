@@ -1,4 +1,4 @@
-package com.sinzoro.common;
+package com.sinzoro.common.common;
 
 import java.io.IOException;
 

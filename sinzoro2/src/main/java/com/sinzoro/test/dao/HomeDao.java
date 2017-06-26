@@ -1,10 +1,12 @@
-package com.sinzoro.test;
+package com.sinzoro.test.dao;
 
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.sinzoro.test.vo.HomeVO;
 
 @Repository
 public class HomeDao {

@@ -1,4 +1,4 @@
-package com.sinzoro.common;
+package com.sinzoro.common.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

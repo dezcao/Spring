@@ -1,4 +1,4 @@
-package com.sinzoro.test;
+package com.sinzoro.test.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.sinzoro.test.dao.HomeDao;
+import com.sinzoro.test.vo.HomeVO;
 
 /**
  * Handles requests for the application home page.
