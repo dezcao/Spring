@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- http://docs.spring.io/spring-security/site/docs/4.2.3.RELEASE/reference/htmlsingle/ -->
+	<!-- http://www.baeldung.com/spring-security-authentication-with-a-database -->
+	<!-- http://java-school.net/spring/spring-security-config -->
+	<!-- 사이트 간 요청 위조 (또는 크로스 사이트 요청 위조, 영어: Cross-site request forgery, CSRF, 
+		XSRF)는 웹사이트 취약점 공격의 하나로, 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록 등)를 특정 
+		웹사이트에 요청하게 하는 공격을 말한다. 유명 경매 사이트인 옥션에서 발생한 개인정보 유출 사건에서 사용된 공격 방식 중 하나다. 
+		사이트 간 스크립팅(XSS)을 이용한 공격이 사용자가 특정 웹사이트를 신용하는 점을 노린 것이라면, 사이트간 요청 위조는 특정 웹사이트가 
+		사용자의 웹 브라우저를 신용하는 상태를 노린 것이다. 일단 사용자가 웹사이트에 로그인한 상태에서 사이트간 요청 위조 공격 코드가 삽입된 
+		페이지를 열면, 공격 대상이 되는 웹사이트는 위조된 공격 명령이 믿을 수 있는 사용자로부터 발송된 것으로 판단하게 되어 공격에 노출된다. -->
+
+	<http auto-config='true' use-expressions="true">
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/resources/**" access="permitAll" />
+		<intercept-url pattern="/images/**" access="permitAll" />
+		<intercept-url pattern="/css/**" access="permitAll" />
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+
+		<form-login login-page="/login" default-target-url="/"
+			username-parameter="username" password-parameter="password"
+			authentication-failure-url="/login?error" always-use-default-target='true' />
+
+		<logout logout-url="/logout" logout-success-url="/login?logout" />
+	</http>
+
+	<!-- CREATE TABLE `authorities` ( `id` INT(11) NOT NULL AUTO_INCREMENT, 
+		`username` VARCHAR(50) NULL DEFAULT 'anonymous', `authority` VARCHAR(50) 
+		NULL DEFAULT NULL, PRIMARY KEY (`id`) ) COLLATE='utf8_general_ci' ENGINE=InnoDB 
+		AUTO_INCREMENT=3 ; -->
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select name as username, password as password, 1 as enabled from zoro where name = ?"
+				authorities-by-username-query="select username as username, authority from AUTHORITIES where username = ?" />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>

@@ -10,7 +10,8 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>4.1.6.RELEASE</org.springframework-version>
+		<org.springframework-version>4.2.3.RELEASE
+		</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -32,6 +33,23 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.2.3.RELEASE</version>
 		</dependency>
 
 		<!-- AspectJ -->
@@ -140,7 +158,8 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-pool/commons-pool -->
-		<!-- 짜증이 난다. 애초 구성에서는 포함하지 않아도 되었던 의존성이며, 기본구성에서 이 의존성 해결없이 메이븐 업데이트나 클린등의 동작으로 해결하지 못했다. -->
+		<!-- 짜증이 난다. 애초 구성에서는 포함하지 않아도 되었던 의존성이며, 기본구성에서 이 의존성 해결없이 메이븐 업데이트나 클린등의 
+			동작으로 해결하지 못했다. -->
 		<dependency>
 			<groupId>commons-pool</groupId>
 			<artifactId>commons-pool</artifactId>
