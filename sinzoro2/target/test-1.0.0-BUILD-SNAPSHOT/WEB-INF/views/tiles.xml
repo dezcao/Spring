@@ -15,7 +15,7 @@
 	</definition>
 
 	<definition name="*" extends="definitions">
-		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/jsp/template/{1}.jsp" />
 	</definition>
 </tiles-definitions>
 

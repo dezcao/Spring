@@ -41,7 +41,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/" />
 			<exclude-mapping path="/do-login" />
-			<beans:bean class="com.sinzoro.common.SampleInterceptor"></beans:bean>
+			<beans:bean class="com.sinzoro.common.common.SampleInterceptor"></beans:bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

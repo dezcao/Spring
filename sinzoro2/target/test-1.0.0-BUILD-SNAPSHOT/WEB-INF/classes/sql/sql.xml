@@ -4,7 +4,7 @@
   
 <mapper namespace="sql">
   
-    <select id="zoro" resultType="com.sinzoro.test.HomeVO">
+    <select id="zoro" resultType="com.sinzoro.test.vo.HomeVO">
  
         SELECT * FROM zoro
   
