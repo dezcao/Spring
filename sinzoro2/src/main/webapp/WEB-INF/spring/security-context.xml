@@ -39,7 +39,7 @@
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select name as username, password as password, 1 as enabled from zoro where name = ?"
-				authorities-by-username-query="select username as username, authority from AUTHORITIES where username = ?" />
+				authorities-by-username-query="select name as username, authority from AUTHORITIES where name = ?" />
 		</authentication-provider>
 	</authentication-manager>
 </beans:beans>
