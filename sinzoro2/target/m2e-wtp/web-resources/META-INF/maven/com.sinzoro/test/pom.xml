@@ -110,23 +110,35 @@
 		</dependency>
 
 		<!-- Servlet -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+			<version>2.5</version> <scope>provided</scope> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
+
+		<!-- <dependency> <groupId>javax.servlet.jsp</groupId> <artifactId>jsp-api</artifactId> 
+			<version>2.1</version> <scope>provided</scope> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>jstl</artifactId> 
+			<version>1.2</version> </dependency> -->
 
 		<!-- Test -->
 		<dependency>
@@ -172,13 +184,13 @@
 			<artifactId>mariadb-java-client</artifactId>
 			<version>2.0.0-RC</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		    <version>1.4.195</version>
-		    <scope>runtime</scope>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.195</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- spring-jdbc -->
@@ -238,13 +250,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -261,16 +270,16 @@
 				<version>2.1.1</version>
 			</plugin>
 			<plugin>
-		        <groupId>org.codehaus.mojo</groupId>
-		        <artifactId>exec-maven-plugin</artifactId>
-		        <version>1.1</version>
-		        <configuration>
-		            <mainClass>org.h2.tools.Console</mainClass>
-		            <arguments>
-		                <argument>-browser</argument>
-		            </arguments>
-		        </configuration>
-		   </plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<mainClass>org.h2.tools.Console</mainClass>
+					<arguments>
+						<argument>-browser</argument>
+					</arguments>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
