@@ -4,21 +4,23 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="definitions"
-		template="/WEB-INF/views/layout/default-layout.jsp">
-		<put-attribute name="header"
-			value="/WEB-INF/views/layout/header.jsp" />
-		<put-attribute name="content"
-			value="" />
-		<put-attribute name="footer"
-			value="/WEB-INF/views/layout/footer.jsp" />
-	</definition>
 
-	<definition name="*" extends="definitions">
-		<put-attribute name="content" value="/WEB-INF/views/jsp/template/{1}.jsp" />
+	<!-- 로그인 -->
+	<definition name="loginLayout" template="/WEB-INF/views/layout/login-layout.jsp">
+		<put-attribute name="content" value="" />
 	</definition>
-	<definition name="*/*" extends="definitions">
-		<put-attribute name="content" value="/WEB-INF/views/jsp/template/{1}/{2}.jsp" />
+	<definition name="*" extends="loginLayout">
+		<put-attribute name="content" value="/WEB-INF/views/jsp/template/login.jsp" />
 	</definition>
+	
+	<!-- 기타 페이지 -->
+	<definition name="definitions" template="/WEB-INF/views/layout/default-layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/layout/default-header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/default-footer.jsp" />
+	</definition>
+	<definition name="/home/*" extends="definitions">
+		<put-attribute name="content" value="/WEB-INF/views/jsp/home/{1}.jsp" />
+	</definition>
+	
 </tiles-definitions>
 

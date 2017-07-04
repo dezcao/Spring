@@ -1,8 +1,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<tiles:insertDefinition name="definitions">
-    <tiles:putAttribute name="content">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
@@ -15,17 +12,7 @@
                             </div>
 							
                             <img class="featuredImg" src="<c:url value="/resources/bootstrap/img/phone.jpg"/>" width="100%"/>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
-                                sodales id vehicula quis, hendrerit id nisl. Praesent dictum sem eu eros
-                                accumsan semper. Suspendisse in odio congue, ultricies nunc et, scelerisque nisi.
-                                Donec ac mauris ex. Etiam nulla lorem, hendrerit at lacinia ornare, vulputate
-                                ac felis. Ut congue, elit a dictum gravida, est metus congue mauris, sit amet
-                                semper felis tortor sit amet felis. Sed dictum magna non turpis consequat,
-                                et cursus nisi dapibus.
-                            </p>
-
+                            
                             <h4>Heading</h4>
 
                             <p>
@@ -43,6 +30,9 @@
 
                 <div class="col-lg-3">
                     <div class="list-group">
+                    	
+                    	
+                    
                         <a href="#" class="list-group-item">
                             <h4 class="list-group-item-heading">Lorem ipsum</h4>
 
@@ -67,26 +57,8 @@
                                 sodales id vehicula quis, hendrerit id nisl.
                             </p>
                         </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
-                                sodales id vehicula quis, hendrerit id nisl.
-                            </p>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
-                                sodales id vehicula quis, hendrerit id nisl.
-                            </p>
-                        </a>
+    
                     </div>
                 </div>
             </div>
         </div>
-
-    </tiles:putAttribute>
-</tiles:insertDefinition>

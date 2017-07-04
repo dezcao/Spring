@@ -24,17 +24,13 @@
 		<intercept-url pattern="/css/**" access="permitAll" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
-		<form-login login-page="/login" default-target-url="/"
+		<form-login login-page="/login" default-target-url="/jsp"
 			username-parameter="username" password-parameter="password"
 			authentication-failure-url="/login?error" always-use-default-target='true' />
 
 		<logout logout-url="/logout" logout-success-url="/login?logout" />
 	</http>
 
-	<!-- CREATE TABLE `authorities` ( `id` INT(11) NOT NULL AUTO_INCREMENT, 
-		`username` VARCHAR(50) NULL DEFAULT 'anonymous', `authority` VARCHAR(50) 
-		NULL DEFAULT NULL, PRIMARY KEY (`id`) ) COLLATE='utf8_general_ci' ENGINE=InnoDB 
-		AUTO_INCREMENT=3 ; -->
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
