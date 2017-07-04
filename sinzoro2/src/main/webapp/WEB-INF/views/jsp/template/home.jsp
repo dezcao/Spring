@@ -1,16 +1,92 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	Hello world!  
-</h1>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<tiles:insertDefinition name="definitions">
+    <tiles:putAttribute name="content">
 
-<P>  The time on the server is ${serverTime}. </P>
-<P>  id is ${vo.id}. </P>
-<P>  name is ${vo.name}. </P>
-</body>
-</html>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="page-header">
+                                <h3>Whatever you want
+                                    <small>Posted on July 26th</small>
+                                </h3>
+                            </div>
+							
+                            <img class="featuredImg" src="<c:url value="/resources/bootstrap/img/phone.jpg"/>" width="100%"/>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl. Praesent dictum sem eu eros
+                                accumsan semper. Suspendisse in odio congue, ultricies nunc et, scelerisque nisi.
+                                Donec ac mauris ex. Etiam nulla lorem, hendrerit at lacinia ornare, vulputate
+                                ac felis. Ut congue, elit a dictum gravida, est metus congue mauris, sit amet
+                                semper felis tortor sit amet felis. Sed dictum magna non turpis consequat,
+                                et cursus nisi dapibus.
+                            </p>
+
+                            <h4>Heading</h4>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl. Praesent dictum sem eu eros
+                                accumsan semper. Suspendisse in odio congue, ultricies nunc et, scelerisque nisi.
+                                Donec ac mauris ex. Etiam nulla lorem, hendrerit at lacinia ornare, vulputate
+                                ac felis. Ut congue, elit a dictum gravida, est metus congue mauris, sit amet
+                                semper felis tortor sit amet felis. Sed dictum magna non turpis consequat,
+                                et cursus nisi dapibus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl.
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl.
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl.
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl.
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Lorem ipsum</h4>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam augue enim,
+                                sodales id vehicula quis, hendrerit id nisl.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </tiles:putAttribute>
+</tiles:insertDefinition>
