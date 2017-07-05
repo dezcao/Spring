@@ -12,4 +12,16 @@
         SELECT id, name, password FROM zoro WHERE name = #{username}
     </select>
     
+    <insert id="insertUser" parameterType="com.sinzoro.test.vo.HomeVO">
+    	insert into zoro
+    	(name, password)
+    	values(#{name}, #{password})
+    </insert>
+    
+    <insert id="insertAuth" parameterType="com.sinzoro.test.vo.HomeVO">
+    	insert into authorities
+    	(name, authority)
+    	values(#{name}, 'ROLE_USER')
+    </insert>
+    
 </mapper>

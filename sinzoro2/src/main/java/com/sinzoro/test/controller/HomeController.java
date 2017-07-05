@@ -12,15 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.sinzoro.test.dao.HomeDao;
 import com.sinzoro.test.vo.HomeVO;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 
@@ -28,11 +23,11 @@ public class HomeController {
 
 	@Autowired
 	HomeDao homeDao;
-
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	
+	/*
+	 * 로그인 프로세스 성공 후, /jsp로 온다. security-context.xml -> default-target-url="/jsp" 참조.
+	*/
+	@RequestMapping(value = "/jsp", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -45,29 +40,8 @@ public class HomeController {
 		HomeVO vo = list.get(0);
 		model.addAttribute("vo", vo);
 		model.addAttribute("serverTime", formattedDate);
-
-		return "home";
+		
+		return "/home/home"; // 로그인 성공한 경우, 최초 이동할 홈페이지. tiles.xml 참조
 	}
 	
-	/*로그인 요청*/
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(Locale locale,
-			HomeVO vo,
-			@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout,
-			ModelAndView model) {
-		
-		logger.info("Welcome login.", locale);
-		
-		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
-		}
-		
-		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
-		}
-		model.setViewName("login");
-		return model;
-	}
-
 }

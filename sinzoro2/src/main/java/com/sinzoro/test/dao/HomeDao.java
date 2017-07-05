@@ -1,6 +1,5 @@
 package com.sinzoro.test.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,8 +19,15 @@ public class HomeDao {
 	}
 
 	public HomeVO getUserByName(String username) {
-		System.out.println("???????");
 		return sqlSession.selectOne("sql.getUser", username);
+	}
+	
+	public int insertUser(HomeVO vo) {
+		return sqlSession.insert("sql.insertUser", vo);
+	}
+	
+	public int insertAuthority(HomeVO vo) {
+		return sqlSession.insert("sql.insertAuth", vo);
 	}
 	
 }

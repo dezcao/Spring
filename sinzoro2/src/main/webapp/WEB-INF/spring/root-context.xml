@@ -8,7 +8,12 @@
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:~/test" />
+		
+		<!-- embededded mode just one connection --> 
+		<!-- <property name="url" value="jdbc:h2:~/test" /> -->
+		
+		<!-- server mode for multi connection : now, can often browser using localhost://8082 -->
+		<property name="url" value="jdbc:h2:tcp://localhost/~/test" />
 		<property name="username" value="sa" />
 		<property name="password" value="sa" />
 	</bean>
