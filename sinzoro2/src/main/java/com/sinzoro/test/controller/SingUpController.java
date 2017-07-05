@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sinzoro.test.dao.HomeDao;
+import com.sinzoro.test.vo.HomeVO;
 
 @Controller
 public class SingUpController {
@@ -21,13 +22,22 @@ public class SingUpController {
 	HomeDao homeDao;
 	
 	/*
-	 * 로그인 프로세스 성공 후, /jsp로 온다. security-context.xml -> default-target-url="/jsp" 참조.
+	 * 
 	*/
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String signForm(Locale locale, Model model) {
 		logger.info("Thanks! Join us. {}", locale);
 		
-		return "/home/signUp"; // 로그인 성공한 경우, 최초 이동할 홈페이지. tiles.xml 참조
+		return "/home/signUp";
+	}
+	
+	@RequestMapping(value = "/signUpInsert", method = RequestMethod.POST)
+	public String insert(HomeVO vo) {		
+		logger.info("go go insert! {}", vo.getName());
+		homeDao.insertUser(vo);
+		homeDao.insertAuthority(vo);
+		// insert 성공 여부에 따라서 로직이 들어갈 자리.
+		return "redirect:/login";
 	}
 	
 }
