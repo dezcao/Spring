@@ -9,17 +9,13 @@
 </head>
 <body>
 
-
 	<div class="container">
-		
-		
 		
 		<c:if test="${not empty param.error }">
 		<h2>${SPRING_SECURITY_LAST_EXCEPTION.message }</h2>
-	</c:if>
+		</c:if>
 		
 	  <c:url var="loginUrl" value="/login" />
-	
       
       <form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
 		<input type="hidden" name="${_csrf.parameterName}"
@@ -43,6 +39,7 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a href="<c:url value="/signUp"/>">(회원이 아니신가요?) Sign up</a>
       </form>
 
     </div> <!-- /container -->
