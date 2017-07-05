@@ -8,14 +8,22 @@
     <title>Bootstrap 3</title>
     <meta name="viewport" content="width=device-with, initial-scale=1.0"/>
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/custom/css/signin.css" />" rel="stylesheet">
     
 </head>
 
 <body>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
     
 	<tiles:insertAttribute name="content"/>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
+	
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="<c:url value="/resources/bootstrap/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 
 </html>

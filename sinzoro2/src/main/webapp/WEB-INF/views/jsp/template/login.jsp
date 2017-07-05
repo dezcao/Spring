@@ -9,31 +9,43 @@
 </head>
 <body>
 
-	<c:if test="${not empty param.error }">
+
+	<div class="container">
+		
+		
+		
+		<c:if test="${not empty param.error }">
 		<h2>${SPRING_SECURITY_LAST_EXCEPTION.message }</h2>
 	</c:if>
-
-	<c:url var="loginUrl" value="/login" />
-
-	<form id="loginForm" action="${loginUrl }" method="post">
+		
+	  <c:url var="loginUrl" value="/login" />
+	
+      
+      <form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
+			
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <!-- 
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+         -->
+        
+        <label for="inputName" class="sr-only">Email address</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Name" required="" autofocus="" name="username">
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">
+        
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
-		<table>
-			<tr>
-				<td style="width: 200px;">name</td>
-				<td style="width: 390px"><input type="text" name="username"
-					placeholder="NAME" required /></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="password" style="width: 99%;"
-					placeholder="PASSWORD" required /></td>
-			</tr>
-		</table>
-
-		<input type="submit" value="Log in" />
-	</form>
+    </div> <!-- /container -->
 
 	<c:if test="${not empty error}">
 		<div class="error">${error}</div>
@@ -41,9 +53,6 @@
 	<c:if test="${not empty msg}">
 		<div class="msg">${msg}</div>
 	</c:if>
-
-
-
 
 </body>
 </html>
