@@ -43,13 +43,20 @@
       </form>
 
     </div> <!-- /container -->
-
+    
+    <div id="google_id_login" style="text-align:center">
+    	<a href="${google_url}">
+    	<img alt="google login" src="<c:url value="/resources/custom/img/google.png"/>"  width="40" height="40"> google login
+    	</a>
+    </div>
+    
+	<div style="text-align:center">
 	<c:if test="${not empty error}">
 		<div class="error">${error}</div>
 	</c:if>
 	<c:if test="${not empty msg}">
 		<div class="msg">${msg}</div>
 	</c:if>
-
+	</div>
 </body>
 </html>

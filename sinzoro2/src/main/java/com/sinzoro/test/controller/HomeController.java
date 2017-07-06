@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sinzoro.test.dao.HomeDao;
 import com.sinzoro.test.vo.HomeVO;
@@ -28,8 +29,8 @@ public class HomeController {
 	 * 로그인 프로세스 성공 후, /jsp로 온다. security-context.xml -> default-target-url="/jsp" 참조.
 	*/
 	@RequestMapping(value = "/jsp", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public String home(Locale locale,@RequestParam String code, Model model) {
+		logger.info("Welcome home! The client code is {}.", code);
 
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
