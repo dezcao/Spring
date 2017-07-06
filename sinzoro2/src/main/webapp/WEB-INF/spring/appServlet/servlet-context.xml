@@ -29,6 +29,21 @@
 	
 	<!-- spring security -->
 	<security:global-method-security pre-post-annotations="enabled" />
+	
+	
+	<!-- spring social google -->
+	<beans:bean id="googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<beans:constructor-arg value="245307364557-lskj36nhofqk7ir96esnpij8r7u9367p.apps.googleusercontent.com"/>
+		<beans:constructor-arg value="7xLkiPgbK9tT6AkvElpXdypD"/>
+	</beans:bean>
+	<beans:bean id="googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
+		<beans:property name="scope" value="https://www.googleapis.com/auth/plus.login"/>
+		<beans:property name="redirectUri" value="http://localhost:8080/test/oauth2callback" />
+	</beans:bean>
+		<!-- <beans:property name="redirectUri" value="http://localhost:8080/test/oauth2callback" /> -->
+	
+	
+	
 
 	<!-- Tiles 설정 -->
 	<beans:bean id="viewResolver"
