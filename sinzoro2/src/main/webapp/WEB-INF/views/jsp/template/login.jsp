@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <html>
 <head>
@@ -17,10 +17,11 @@
 		
 	  <c:url var="loginUrl" value="/login" />
       
-      <form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
+      <form:form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
+		 
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
-			
+		 
         <h2 class="form-signin-heading">Please sign in</h2>
         <!-- 
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -28,10 +29,10 @@
          -->
         
         <label for="inputName" class="sr-only">Email address</label>
-        <input type="text" id="inputName" class="form-control" placeholder="Name" required="" autofocus="" name="username">
+        <input type="text" id="inputName" class="form-control" placeholder="Name" required="required" autofocus="autofocus" name="username">
         
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" name="password">
         
         <div class="checkbox">
           <label>
@@ -39,14 +40,14 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <a href="<c:url value="/signUp"/>">(È¸¿øÀÌ ¾Æ´Ï½Å°¡¿ä?) Sign up</a>
-      </form>
+        <a href="<c:url value="/signUp"/>">(íšŒì›ì´ ì•„ë‹ˆì‹ ê°€ìš”?) Sign up</a>
+      </form:form>
 
     </div> <!-- /container -->
     
     <div id="google_id_login" style="text-align:center">
     	<a href="${google_url}">
-    	<img alt="google login" src="<c:url value="/resources/custom/img/google.png"/>"  width="40" height="40"> google login
+    	<img alt="google login" src="https://raw.githubusercontent.com/googleplus/gplus-quickstart-java/master/mvn/static/signin_button.png" style=""/>
     	</a>
     </div>
     
