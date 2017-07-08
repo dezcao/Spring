@@ -616,3 +616,8 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
+        <script>
+            (function() {
+				window.location.replace("/home#");
+           	})();
+        </script>

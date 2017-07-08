@@ -76,7 +76,10 @@ public class GoogleLoginController {
 		logger.info("context contextpath : {} ", request.getContextPath());
 		logger.info("context servletpath : {} ", request.getServletPath());
 		
+		
+		// get으로 엄청난 정보가 날아가고 있는 현상을 수정해야만 한다. 현재 임시로 jsp에서 눈가림으로 막아놨다.
 		model.setViewName("/home/home");
+		
 		return model;
 	}
 
