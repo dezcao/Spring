@@ -28,7 +28,7 @@
 		<intercept-url pattern="/css/**" access="permitAll" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
-		<form-login login-page="/login" default-target-url="/jsp"
+		<form-login login-page="/login" default-target-url="/loginSuccess"
 			username-parameter="username" password-parameter="password"
 			authentication-failure-url="/login?error" always-use-default-target='true' />
 
