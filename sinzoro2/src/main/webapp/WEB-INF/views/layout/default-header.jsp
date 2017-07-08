@@ -6,11 +6,11 @@
 		<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 		<span class="icon-bar"></span> <span class="icon-bar"></span>
 	</button>
-	<a class="navbar-brand" href="#">Bootstrap theme</a>
+	<a class="navbar-brand" href="<c:url value="/home" />">Bootstrap theme</a>
 </div>
 <div id="navbar" class="navbar-collapse collapse">
 	<ul class="nav navbar-nav">
-		<li class="active"><a href="#">Home</a></li>
+		<li class="active"><a href="<c:url value="/home" />">Home</a></li>
 		<li><a href="#about">About</a></li>
 		<li><a href="#contact">Contact</a></li>
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -31,8 +31,11 @@
 	<div style="padding-top: 0.5em;">
 		<c:url var="logoutUrl" value="/logout" />
 		<form action="${logoutUrl }" method="post">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<input type="text" value="zz"> 
 			<input type="submit" class="btn btn-default pull-right" value="Log out" />
 		</form>
 	</div>
+    
+    <a href="<c:url value="/signUp" />">Sign Up</a>
 </div>

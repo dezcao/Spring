@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <html>
 <head>
@@ -14,13 +14,12 @@
 		<c:if test="${not empty param.error }">
 		<h2>${SPRING_SECURITY_LAST_EXCEPTION.message }</h2>
 		</c:if>
-		
-	  <c:url var="loginUrl" value="/login" />
       
-      <form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
+      <form:form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
+		 
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
-			
+		 
         <h2 class="form-signin-heading">Please sign in</h2>
         <!-- 
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -28,27 +27,36 @@
          -->
         
         <label for="inputName" class="sr-only">Email address</label>
-        <input type="text" id="inputName" class="form-control" placeholder="Name" required="" autofocus="" name="username">
+        <input type="text" id="inputName" class="form-control" placeholder="Name" required="required" autofocus="autofocus" name="username">
         
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" name="password">
         
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
+        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <a href="<c:url value="/signUp"/>">(»∏ø¯¿Ã æ∆¥œΩ≈∞°ø‰?) Sign up</a>
-      </form>
+        
+        <div class="btn-group-vertical" role="group" aria-label="..." style="margin-top: 10px;">
+            <button type="button" class="btn btn-default">
+                <a href="<c:url value="/login/googleSingIn" />">
+                    <img alt="google login" 
+                    src="https://raw.githubusercontent.com/googleplus/gplus-quickstart-java/master/mvn/static/signin_button.png" 
+                    style="width: 60%; height: 60%;"/>google Login
+                </a>
+            </button>
+            <button type="button" class="btn btn-default">Naver</button>
+            <button type="button" class="btn btn-default">FaceBook</button>
+            <button type="button" class="btn btn-default">Twitter</button>
+            <button type="button" class="btn btn-default"><a href="<c:url value="/signUp"/>">(ÌöåÏõêÏù¥ ÏïÑÎãàÏã†Í∞ÄÏöî?) Sign up</a></button>
+        </div>
+    
+      </form:form>
 
     </div> <!-- /container -->
-    
-    <div id="google_id_login" style="text-align:center">
-    	<a href="${google_url}">
-    	<img alt="google login" src="<c:url value="/resources/custom/img/google.png"/>"  width="40" height="40"> google login
-    	</a>
-    </div>
     
 	<div style="text-align:center">
 	<c:if test="${not empty error}">
