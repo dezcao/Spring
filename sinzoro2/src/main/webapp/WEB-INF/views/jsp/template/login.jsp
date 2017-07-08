@@ -14,8 +14,6 @@
 		<c:if test="${not empty param.error }">
 		<h2>${SPRING_SECURITY_LAST_EXCEPTION.message }</h2>
 		</c:if>
-		
-	  <c:url var="loginUrl" value="/login" />
       
       <form:form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
 		 
@@ -39,17 +37,26 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
+        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <a href="<c:url value="/signUp"/>">(회원이 아니신가요?) Sign up</a>
+        
+        <div class="btn-group-vertical" role="group" aria-label="..." style="margin-top: 10px;">
+            <button type="button" class="btn btn-default">
+                <a href="<c:url value="/login/googleSingIn" />">
+                    <img alt="google login" 
+                    src="https://raw.githubusercontent.com/googleplus/gplus-quickstart-java/master/mvn/static/signin_button.png" 
+                    style="width: 60%; height: 60%;"/>google Login
+                </a>
+            </button>
+            <button type="button" class="btn btn-default">Naver</button>
+            <button type="button" class="btn btn-default">FaceBook</button>
+            <button type="button" class="btn btn-default">Twitter</button>
+            <button type="button" class="btn btn-default"><a href="<c:url value="/signUp"/>">(회원이 아니신가요?) Sign up</a></button>
+        </div>
+    
       </form:form>
 
     </div> <!-- /container -->
-    
-    <div id="google_id_login" style="text-align:center">
-    	<a href="${google_url}">
-    	<img alt="google login" src="https://raw.githubusercontent.com/googleplus/gplus-quickstart-java/master/mvn/static/signin_button.png" style=""/>
-    	</a>
-    </div>
     
 	<div style="text-align:center">
 	<c:if test="${not empty error}">

@@ -18,23 +18,30 @@
 		페이지를 열면, 공격 대상이 되는 웹사이트는 위조된 공격 명령이 믿을 수 있는 사용자로부터 발송된 것으로 판단하게 되어 공격에 노출된다. -->
 
 	<http auto-config='true' use-expressions="true">
-		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/signUp" access="permitAll" />
-		<intercept-url pattern="/signUpInsert" access="permitAll" />
-		<intercept-url pattern="/oauth2callback" access="permitAll" />
+		<!-- 인증되지 않은 상태에서 허용할 요청 -->
+		<intercept-url pattern="/home/**" access="permitAll" />
+		<intercept-url pattern="/login/**" access="permitAll" />
+		<intercept-url pattern="/signUp/**" access="permitAll" />
 		
+		<!-- 인증 필요없는 요청 -->
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<intercept-url pattern="/images/**" access="permitAll" />
 		<intercept-url pattern="/css/**" access="permitAll" />
+		
+		<!-- 권한 부여 -->
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
-
+		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/myPage" access="hasRole('ROLE_AUTHOR')" />
+		
+		<!-- 로그인 순환폼 -->
 		<form-login login-page="/login" default-target-url="/loginSuccess"
 			username-parameter="username" password-parameter="password"
 			authentication-failure-url="/login?error" always-use-default-target='true' />
 
 		<logout logout-url="/logout" logout-success-url="/login?logout" />
 	</http>
-
+	
+	<!-- 권한검증 -->
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
