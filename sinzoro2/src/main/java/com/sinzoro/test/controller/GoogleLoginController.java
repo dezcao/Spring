@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
+
 import com.sinzoro.test.dao.HomeDao;
 
 @Controller
@@ -52,12 +55,14 @@ public class GoogleLoginController {
 	
 	// 구글 Callback호출 메소드
 	@RequestMapping(value = "/login/oauth2callback", method = RequestMethod.GET)
-	public ModelAndView googleCallback(ModelAndView model, @RequestParam String code, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public ModelAndView googleCallback(ModelAndView model, @RequestParam String code, HttpServletRequest request, HttpServletResponse response,
+			RedirectAttributes redirectAttributes) throws IOException, ServletException {
 		logger.info("google callback. code : {}", code);
 
 		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 		AccessGrant accessGrant = oauthOperations.exchangeForAccess(code, googleOAuth2Parameters.getRedirectUri(), null);
 		String accessToken = accessGrant.getAccessToken();
+		
 		Long expireTime = accessGrant.getExpireTime();
 		if (expireTime != null && expireTime < System.currentTimeMillis()) {
 			accessToken = accessGrant.getRefreshToken();
@@ -68,18 +73,15 @@ public class GoogleLoginController {
 		PlusOperations plusOperations = google.plusOperations();
 		Person person = plusOperations.getGoogleProfile();
 		
-		logger.info("person : {}", person);
-		logger.info("person displayname: {}", person.getDisplayName());
+		logger.info("person.getImageUrl() : {}", person.getImageUrl());
+		logger.info("person displayName: {}", person.getDisplayName());
 		
-		model.addObject("displayName", person.getDisplayName());
-		
-		logger.info("context contextpath : {} ", request.getContextPath());
-		logger.info("context servletpath : {} ", request.getServletPath());
-		
-		
-		// get으로 엄청난 정보가 날아가고 있는 현상을 수정해야만 한다. 현재 임시로 jsp에서 눈가림으로 막아놨다.
-		model.setViewName("/home/home");
-		
+		RedirectView redirectView = new RedirectView(); // redirect url 설정
+		redirectView.setUrl("/home");
+		redirectAttributes.addFlashAttribute("imageUrl", person.getImageUrl()); // redirectAttributes
+		redirectAttributes.addFlashAttribute("displayName", person.getDisplayName());
+		redirectView.setExposeModelAttributes(false); // redirect 요청이지만 model에 추가한 변수값을 숨겨준다.
+		model.setView(redirectView); // 리다이렉트 url 깨끗하게 위에 설정한 값으로 변경한다.
 		return model;
 	}
 

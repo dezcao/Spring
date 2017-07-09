@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeController {
+public class AdminController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-	@RequestMapping(value = "/home", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String home() {
-		return "/home/home";
+		logger.info("Here is HomeController.");
+		return "/home/admin";
 	}
 	
 }
