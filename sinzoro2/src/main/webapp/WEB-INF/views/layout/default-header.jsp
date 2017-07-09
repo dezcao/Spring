@@ -38,4 +38,5 @@
 	</div>
     
     <a href="<c:url value="/signUp" />">Sign Up</a>
+    <a href="<c:url value="/admin" />">Admin</a>
 </div>
