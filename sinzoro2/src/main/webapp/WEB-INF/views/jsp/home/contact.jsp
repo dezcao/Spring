@@ -3,7 +3,7 @@
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
-			<h1>Spring4.0 Sample</h1>
+			<h1>Contact</h1>
 			<p>	
 				https://github.com/dezcao/Spring.git
 			</p>
@@ -13,18 +13,14 @@
 					<li>Tomcat 8.5</li>
 				</ul>
 				
-		    <img src="${sessionScope.imageUrl }">
-		    <br>${sessionScope.displayName }
+		    <img src="${imageUrl }">
+		    <br>
+		    ${displayName }
 		    
 		</div>
 
-		<div class="embed-responsive embed-responsive-16by9">
-		  <iframe class="embed-responsive-item"
-		    src="https://www.youtube.com/embed/mX9L8IuiwJA" frameborder="0" allowfullscreen></iframe>
-		</div>
-		
         <script>
             (function() {
-				//window.location.replace("/home#");
+				
            	})();
         </script>

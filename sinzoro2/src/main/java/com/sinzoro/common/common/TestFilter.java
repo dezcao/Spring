@@ -15,9 +15,7 @@ public class TestFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException { // 모든 요청(Request)에 대해서 이 부분이 실행된다.
 	    HttpServletRequest request = (HttpServletRequest)req;
-	    
 	    System.out.println("RequestURL : "+request.getRequestURL());
-	    
 	    chain.doFilter(req, res);
 	}
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-		http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/security
-		http://www.springframework.org/schema/security/spring-security.xsd">
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- http://docs.spring.io/spring-security/site/docs/4.2.3.RELEASE/reference/htmlsingle/ -->
 	<!-- http://www.baeldung.com/spring-security-authentication-with-a-database -->
@@ -16,22 +14,30 @@
 		사이트 간 스크립팅(XSS)을 이용한 공격이 사용자가 특정 웹사이트를 신용하는 점을 노린 것이라면, 사이트간 요청 위조는 특정 웹사이트가 
 		사용자의 웹 브라우저를 신용하는 상태를 노린 것이다. 일단 사용자가 웹사이트에 로그인한 상태에서 사이트간 요청 위조 공격 코드가 삽입된 
 		페이지를 열면, 공격 대상이 되는 웹사이트는 위조된 공격 명령이 믿을 수 있는 사용자로부터 발송된 것으로 판단하게 되어 공격에 노출된다. -->
-
+	
+	<http pattern="/**/*.js" security="none"></http>
+	<http pattern="/**/*.css" security="none"></http>
+	<http pattern="/images/*" security="none"></http>
+	<http pattern="/resources/**" security="none"></http>
+	
 	<http auto-config='true' use-expressions="true">
+		
 		<!-- 인증되지 않은 상태에서 허용할 요청 -->
 		<intercept-url pattern="/home/**" access="permitAll" />
 		<intercept-url pattern="/login/**" access="permitAll" />
 		<intercept-url pattern="/signUp/**" access="permitAll" />
 		
 		<!-- 인증 필요없는 요청 -->
+		<!-- 
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<intercept-url pattern="/images/**" access="permitAll" />
 		<intercept-url pattern="/css/**" access="permitAll" />
-		
-		<!-- 권한 부여 -->
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		 -->
+		 
+		<!-- 권한 부여 : 순서 중요 -->
 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/myPage" access="hasRole('ROLE_AUTHOR')" />
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 		
 		<!-- 로그인 순환폼 -->
 		<form-login login-page="/login" default-target-url="/loginSuccess"
@@ -39,6 +45,11 @@
 			authentication-failure-url="/login?error" always-use-default-target='true' />
 
 		<logout logout-url="/logout" logout-success-url="/login?logout" />
+		
+		<!-- 스프링 폼태그 없이, 일반 폼에서도 csrf 태그를 포함하지 않음. 
+		      이런경우 반드시 post방식 폼만이 방어됨. get 방식 폼은 추가설정 필요 게다가 비추천이므로
+		     get으로 전송할 폼에서는 csrf 히든태그를 추가하는 방식으로 사용하겠음. --> 
+		<csrf disabled="true" />
 	</http>
 	
 	<!-- 권한검증 -->
