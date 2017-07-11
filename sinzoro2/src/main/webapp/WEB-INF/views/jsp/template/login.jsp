@@ -17,9 +17,6 @@
       
       <form:form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
 		 
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-		 
         <h2 class="form-signin-heading">Please sign in</h2>
         <!-- 
         <label for="inputEmail" class="sr-only">Email address</label>

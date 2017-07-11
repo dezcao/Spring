@@ -10,6 +10,7 @@
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/custom/css/signin.css" />" rel="stylesheet">
     
+	<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
 </head>
 
 <body>

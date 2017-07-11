@@ -4,6 +4,8 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +57,7 @@ public class GoogleLoginController {
 	
 	// 구글 Callback호출 메소드
 	@RequestMapping(value = "/login/oauth2callback", method = RequestMethod.GET)
-	public ModelAndView googleCallback(ModelAndView model, @RequestParam String code, HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView googleCallback2(ModelAndView model, @RequestParam String code, HttpServletRequest request, HttpServletResponse response,
 			RedirectAttributes redirectAttributes) throws IOException, ServletException {
 		logger.info("google callback. code : {}", code);
 
@@ -76,10 +78,14 @@ public class GoogleLoginController {
 		logger.info("person.getImageUrl() : {}", person.getImageUrl());
 		logger.info("person displayName: {}", person.getDisplayName());
 		
+		HttpSession session = request.getSession();
+		session.setAttribute("imageUrl", person.getImageUrl());
+		session.setAttribute("displayName", person.getDisplayName());
+		
 		RedirectView redirectView = new RedirectView(); // redirect url 설정
-		redirectView.setUrl("/home");
-		redirectAttributes.addFlashAttribute("imageUrl", person.getImageUrl()); // redirectAttributes
-		redirectAttributes.addFlashAttribute("displayName", person.getDisplayName());
+		redirectView.setUrl("/home/home");
+		//redirectAttributes.addFlashAttribute("imageUrl", person.getImageUrl()); // redirectAttributes
+		//redirectAttributes.addFlashAttribute("displayName", person.getDisplayName());
 		redirectView.setExposeModelAttributes(false); // redirect 요청이지만 model에 추가한 변수값을 숨겨준다.
 		model.setView(redirectView); // 리다이렉트 url 깨끗하게 위에 설정한 값으로 변경한다.
 		return model;
