@@ -36,7 +36,6 @@
 		 
 		<!-- 권한 부여 : 순서 중요 -->
 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/myPage" access="hasRole('ROLE_AUTHOR')" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 		
 		<!-- 로그인 순환폼 -->

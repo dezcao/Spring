@@ -13,18 +13,20 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "home", method = {RequestMethod.GET, RequestMethod.POST})
-	//imageUrl displayName
 	public String home() {
+	    logger.info("Welcome Home.");
 		return "/home/home";
 	}
 	
 	@RequestMapping(value = "board", method = {RequestMethod.GET, RequestMethod.POST})
 	public String board() {
+	    logger.info("Here is board.");
 	    return "/home/board";
 	}
 	
 	@RequestMapping(value = "contact", method = {RequestMethod.GET, RequestMethod.POST})
 	public String contact() {
+	    logger.info("Heare is contect.");
 	    return "/home/contact";
 	}
 	
