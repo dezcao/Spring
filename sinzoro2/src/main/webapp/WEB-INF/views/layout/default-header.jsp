@@ -1,6 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<%@page import="java.util.*"%>
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
+
 <div class="navbar-header">
 	<button type="button" 
 		class="navbar-toggle collapsed"
@@ -14,10 +19,10 @@
 </div>
 <div id="navbar" class="navbar-collapse collapse">
 	<ul class="nav navbar-nav">
-		<li class="active"><a href="<c:url value="/home/home" />">Home</a></li>
-		<li><a href="<c:url value="/home/board" />">Board</a></li>
-		<li><a href="<c:url value="/home/contact" />">Contact</a></li>
-		<li class="dropdown">
+		<li id="home_li"><a href="<c:url value="/home/home" />">Home</a></li>
+		<li id="board_li"><a href="<c:url value="/home/board" />">Board</a></li>
+		<li id="contact_li"><a href="<c:url value="/home/contact" />">Contact</a></li>
+		<li id="dropdown_li" class="dropdown">
 			<a href="#" class="dropdown-toggle"
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">
@@ -33,8 +38,8 @@
 				<li><a href="#">One more separated link</a></li>
 			</ul>
 		</li>
-		<li><a href="<c:url value="/signUp" />">Sign Up</a></li>
-		<li><a href="<c:url value="/admin" />">Admin</a></li>
+		<li id="signUp_li"><a href="<c:url value="/signUp" />">Sign Up</a></li>
+		<li id="admin_li"><a href="<c:url value="/admin" />">Admin</a></li>
 	</ul>
 		<form class="form-inline navbar-form navbar-right">
             <input type="text" class="form-control " placeholder="Search...">
@@ -46,3 +51,13 @@
 	<!-- metohd=get -->
 	<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 </div>
+
+<input type="hidden" value="${active_li }" id="active_li">
+
+<script>
+(function(){
+	var id = document.getElementById("active_li").value;
+	var active_li = document.getElementById(id);
+	active_li.className = "active";
+})();
+</script>

@@ -24,7 +24,9 @@
 		</div>
 		
         <script>
+        /* 
             (function() {
 				//window.location.replace("/home#");
            	})();
+             */
         </script>
