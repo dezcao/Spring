@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 		
   
-  <h2>Horizontal form</h2>
+  <h2>Sign UP</h2>
   <c:url var="signUpInsert" value="/signUpInsert" />
   <form class="form-horizontal" action="${signUpInsert}" method="post">
   	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

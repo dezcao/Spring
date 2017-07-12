@@ -26,6 +26,7 @@
 		<intercept-url pattern="/home/**" access="permitAll" />
 		<intercept-url pattern="/login/**" access="permitAll" />
 		<intercept-url pattern="/signUp/**" access="permitAll" />
+		<intercept-url pattern="/signUpInsert" access="permitAll" />
 		
 		<!-- 인증 필요없는 요청 -->
 		<!-- 
