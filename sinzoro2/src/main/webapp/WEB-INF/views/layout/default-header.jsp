@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <%@page import="java.util.*"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -42,10 +43,29 @@
 		<form class="form-inline navbar-form navbar-right">
             <input type="text" class="form-control " placeholder="Search...">
         </form>
-		<form class="form-inline navbar-form navbar-right" action="<c:url value="/logout" />" method="post">
-			 <button type="submit" class="btn btn-primary ">Log out</button>
-		</form>
-        
+        <c:choose>
+            <c:when test="${displayName != null}">
+                <form class="form-inline navbar-form navbar-right" action="<c:url value="/logout" />" method="post">
+                    <button type="submit" class="btn btn-warning">Log out</button>
+                </form>
+                <div class="navbar-right">
+                    <img src="${imageUrl }">
+                    <span style="color: white;">${displayName }</span>  
+                </div>
+            </c:when>
+            <c:otherwise>
+                <security:authorize access="isAuthenticated()">
+                    <form class="form-inline navbar-form navbar-right" action="<c:url value="/logout" />" method="post">
+                        <button type="submit" class="btn btn-warning">Log out</button>
+                    </form>
+                </security:authorize>
+                <security:authorize access="isAnonymous()">
+                    <form class="form-inline navbar-form navbar-right" action="<c:url value="/login" />" method="post">
+                        <button type="submit" class="btn btn-default">Log in</button>
+                    </form>
+                </security:authorize>
+            </c:otherwise>
+        </c:choose>
 	<!-- metohd=get -->
 	<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 </div>

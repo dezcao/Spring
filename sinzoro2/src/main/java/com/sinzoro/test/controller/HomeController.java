@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,10 @@ public class HomeController {
 	
 	@ModelAttribute
 	public void activeParameterSetter (HttpServletRequest request) {
+	    
 	    logger.debug(request.getRequestURI());
+	    //SecurityContextHolderAwareRequestWrapper.isUserInRole(request);
+	    
 	    switch (request.getRequestURI()) {
             case "/home/home":
                 request.setAttribute("active_li", "home_li");

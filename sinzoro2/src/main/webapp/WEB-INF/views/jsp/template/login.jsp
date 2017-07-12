@@ -17,10 +17,19 @@
       
       <form:form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
 		 
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Sign in</h2>
+        <h5 class="form-signin-heading">
+            <a href="<c:url value="/home/home" />">
+                <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+                <span class="glyphicon-class">Just go home page !</span>
+            </a>
+        </h5>
         <!-- 
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        
+          버튼에 백그라운드 스타일 넣기
+        style="background: #ccc url(test.jpg); padding: 0.5em 1em "
          -->
         
         <label for="inputName" class="sr-only">Email address</label>
@@ -34,23 +43,18 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         
-        <div class="btn-group-vertical" role="group" aria-label="..." style="margin-top: 10px;">
-            <button type="button" class="btn btn-default">
-                <a href="<c:url value="/login/googleSingIn" />">
-                    <img alt="google login" 
-                    src="https://raw.githubusercontent.com/googleplus/gplus-quickstart-java/master/mvn/static/signin_button.png" 
-                    style="width: 60%; height: 60%;"/>google Login
-                </a>
-            </button>
-            <button type="button" class="btn btn-default">Naver</button>
-            <button type="button" class="btn btn-default">FaceBook</button>
-            <button type="button" class="btn btn-default">Twitter</button>
-            <button type="button" class="btn btn-default"><a href="<c:url value="/signUp"/>">(회원이 아니신가요?) Sign up</a></button>
-        </div>
-    
+        <a href="<c:url value="/login/googleSingIn" />" class="btn btn-default btn-lg btn-block" style="max-height: 46px;">
+            <span style="color: blue;">G</span>
+            <span style="color: red;">o</span>
+            <span style="color: orange;">o</span>
+            <span style="color: blue;">g</span>
+            <span style="color: green;">l</span>
+            <span style="color: red;">e</span>
+        </a>
+        
+        <a href="<c:url value="/signUp"/>" class="btn btn-default btn-lg btn-block">Sign up</a>
       </form:form>
 
     </div> <!-- /container -->

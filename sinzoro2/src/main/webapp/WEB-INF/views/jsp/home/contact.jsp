@@ -7,20 +7,9 @@
 			<p>	
 				https://github.com/dezcao/Spring.git
 			</p>
-				<ul>
-					<li>Java 1.8</li>
-					<li>MariaDB, H2DB</li>
-					<li>Tomcat 8.5</li>
-				</ul>
-				
-		    <img src="${imageUrl }">
-		    <br>
-		    ${displayName }
-		    
+            <ul>
+                <li>Java 1.8</li>
+                <li>MariaDB, H2DB</li>
+                <li>Tomcat 8.5</li>
+            </ul>
 		</div>
-
-        <script>
-            (function() {
-				
-           	})();
-        </script>

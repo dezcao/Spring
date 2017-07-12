@@ -42,7 +42,7 @@
 		<!-- 로그인 순환폼 -->
 		<form-login login-page="/login" default-target-url="/loginSuccess"
 			username-parameter="username" password-parameter="password"
-			authentication-failure-url="/login?error" always-use-default-target='true' />
+			authentication-failure-url="/login?error" always-use-default-target='false' />
 
 		<logout logout-url="/logout" logout-success-url="/login?logout" />
 		
