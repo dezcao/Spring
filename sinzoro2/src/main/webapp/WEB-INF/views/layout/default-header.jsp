@@ -1,10 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <%@page import="java.util.*"%>
-<%
-    request.setCharacterEncoding("UTF-8");
-%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div class="navbar-header">
 	<button type="button" 
@@ -26,16 +23,17 @@
 			<a href="#" class="dropdown-toggle"
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">
-				Dropdown<span class="caret"></span>
+				Rink<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-				<li><a href="#">Action</a></li>
-				<li><a href="#">Another action</a></li>
-				<li><a href="#">Something else here</a></li>
+				<li><a href="https://slipp.net/" target="_blank">자바지기</a></li>
+				<li><a href="https://opentutorials.org/course/1" target="_blank">생활코딩</a></li>
+				<li><a href="https://www.w3schools.com/" target="_blank">w3schools</a></li>
 				<li role="separator" class="divider"></li>
-				<li class="dropdown-header">Nav header</li>
-				<li><a href="#">Separated link</a></li>
-				<li><a href="#">One more separated link</a></li>
+				<li class="dropdown-header">Project</li>
+				<li><a href="https://mvnrepository.com/" target="_blank">mvnrepository.com</a></li>
+				<li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR</a></li>
+				<li><a href="http://getbootstrap.com/" target="_blank">bootstrap</a></li>
 			</ul>
 		</li>
 		<li id="signUp_li"><a href="<c:url value="/signUp" />">Sign Up</a></li>

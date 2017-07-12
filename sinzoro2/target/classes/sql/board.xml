@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="board">
+
+    <insert id="insert" parameterType="com.sinzoro.test.vo.BoardVO">
+    	insert into board
+    	(board_content, password, writer, insDate)
+    	values(#{board_content}, #{password}, #{writer}, now())
+    </insert>
+    
+    <select id="findAll" resultType="com.sinzoro.test.vo.BoardVO">
+        SELECT * FROM board
+    </select>
+    
+    <select id="findOne" parameterType="int" resultType="com.sinzoro.test.vo.BoardVO">
+        SELECT * FROM board where id = #{value}
+    </select>
+    
+    <delete id="delete" parameterType="int">
+    	delete from board where id = #{value}
+    </delete>
+    
+</mapper>
