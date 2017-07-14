@@ -12,17 +12,17 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.sinzoro.test" additivity="false">
-		<level value="debug" />
+		<level value="info" />
 		<appender-ref ref="console"/>
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
-		<level value="info" />
+		<level value="warn" />
 	</logger>
 	
 	<logger name="org.springframework.beans">
-		<level value="info" />
+		<level value="warn" />
 	</logger>
 	
 	<logger name="org.springframework.context">

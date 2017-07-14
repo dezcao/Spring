@@ -4,17 +4,6 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-
-	<!-- 로그인 
-		1. loginLayout은 설정이 와일드카드 * 이므로 모든 요청을 잡는다.
-		2. spring sercurity 설정에서 /login을 처리하는 컨트롤러(LoginController.java)가 대응하게 하도록 가로챈다.
-		3. LoginController는 /login으로 이동하게 하였다. 
-		       타일즈는 loginLayout의 * 설정에 따라 login.jsp를 주게된다. (template 설정을 참조) 
-		4. 로그인에 성공하면 security는 /jsp를 받는 컨트롤러(HomeController.java)에게 대응하도록 가로챈다. 실패하면 실패한 설정대로 보낸다.
-		5. HomeControoler는  처리 후, /home/home을 뷰네임으로 돌려주고 이동하게 한다.
-		6. tiles는 definitions 설정에 따라 /home/home.jsp를 찾아줄 것이다. 
-		       컨트롤러에서 '/'가 포함된 경로를 주므로 타일즈 설정도 '/'포함시킨다.  (loginlayout과 다른 템플릿이 설정되어 있다.)
-	-->
 	<definition name="loginLayout" template="/WEB-INF/views/layout/login-layout.jsp">
 		<put-attribute name="content" value="" />
 	</definition>
@@ -22,7 +11,6 @@
 		<put-attribute name="content" value="/WEB-INF/views/jsp/template/{1}.jsp" />
 	</definition>
 	
-	<!-- 기타 페이지 -->
 	<definition name="definitions" template="/WEB-INF/views/layout/default-layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/layout/default-header.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/default-footer.jsp" />
@@ -30,6 +18,5 @@
 	<definition name="/*/*" extends="definitions">
 		<put-attribute name="content" value="/WEB-INF/views/jsp/{1}/{2}.jsp" />
 	</definition>
-	
 </tiles-definitions>
 

@@ -10,7 +10,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CrossScriptingFilter implements Filter {
+    
+    
+    private static final Logger logger = LoggerFactory.getLogger(CrossScriptingFilter.class);
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -19,7 +25,7 @@ public class CrossScriptingFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
-		System.out.println("XSS Filtering init");
+	    logger.warn("XSS Filtering init");
 	}
 
 

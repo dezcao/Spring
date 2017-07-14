@@ -1,7 +1,6 @@
 package com.sinzoro.test.vo;
 
 import com.sinzoro.common.common.Authority;
-
 import lombok.Getter;
 import lombok.Setter;
 
