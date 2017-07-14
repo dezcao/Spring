@@ -10,26 +10,28 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-public class TestFilter implements Filter {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+public class TestFilter implements Filter {
+    
+    private static final Logger logger = LoggerFactory.getLogger(TestFilter.class);
+    
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException { // 모든 요청(Request)에 대해서 이 부분이 실행된다.
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 	    HttpServletRequest request = (HttpServletRequest)req;
-	    System.out.println("RequestURL : "+request.getRequestURL());
+	    logger.debug("RequestURL : {} ", request.getRequestURL());
 	    chain.doFilter(req, res);
 	}
 
 	@Override
-	public void init(FilterConfig config) throws ServletException { // 초기화할 때 실행되는 부분
+	public void init(FilterConfig config) throws ServletException {
 	    String testParam = config.getInitParameter("testParam");
-	    
-	    System.out.println("testParam : "+testParam);
+	    logger.debug("testParam : {} ", testParam);
 	}
-
 
 	@Override
 	public void destroy() {
-	    
 	}
 
 }

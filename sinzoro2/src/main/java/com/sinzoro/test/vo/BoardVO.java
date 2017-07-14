@@ -1,7 +1,6 @@
 package com.sinzoro.test.vo;
 
 import java.util.Date;
-
 import lombok.Getter;
 import lombok.Setter;
 

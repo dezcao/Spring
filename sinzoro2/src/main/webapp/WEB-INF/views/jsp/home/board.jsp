@@ -17,7 +17,7 @@
     -webkit-box-orient:vertical;
     -webkit-line-clamp:3
 }
-/* 출처: http://craziers.com/%EB%A7%90%EC%A4%84%EC%9E%84-ellipsis-css/ */
+/* http://craziers.com/%EB%A7%90%EC%A4%84%EC%9E%84-ellipsis-css/ */
 </style>
 <div class="jumbotron">
     <h1>Board</h1>
@@ -73,24 +73,7 @@
         </tbody>
     </table>
 </div>
-<!-- pagenation -->
-<!-- 
-<div class="page-header">
-    <nav>
-        <ul class="pagination ">
-            <li class="disabled"><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-            </a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-            </a></li>
-        </ul>
-    </nav>
-</div>
- -->
+
 <div class="page-header">
     <h4>- Naver smarteditor Version: 2.9.0.4a256db 적용.</h4>
     <form class="form-inline" action="<c:url value="/home/insBoard" />" method="post" id="insBoardForm">
@@ -127,7 +110,6 @@
 				fCreator : "createSEditor2"
 			});
 	
-	//전송버튼 클릭이벤트
 	$("#savebutton").click(function() {
 		oEditors.getById["board_content"].exec("UPDATE_CONTENTS_FIELD", []);
 		$("#insBoardForm").submit();

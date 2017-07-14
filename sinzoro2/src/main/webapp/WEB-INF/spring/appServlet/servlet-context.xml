@@ -32,7 +32,6 @@
 	<!-- spring security -->
 	<security:global-method-security pre-post-annotations="enabled" />
 	
-	
 	<!-- spring social google -->
 	<beans:bean id="googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
 		<beans:constructor-arg value="245307364557-lskj36nhofqk7ir96esnpij8r7u9367p.apps.googleusercontent.com"/>
@@ -42,9 +41,8 @@
 		<beans:property name="scope" value="https://www.googleapis.com/auth/plus.login"/>
 		<beans:property name="redirectUri" value="http://localhost:8080/login/oauth2callback" />
 	</beans:bean>
-	
 
-	<!-- Tiles 설정 -->
+	<!-- Tiles -->
 	<beans:bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass"
@@ -61,7 +59,6 @@
 		</beans:property>
 	</beans:bean>
 	
-	<!-- 커스텀 인터셉터 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/" />
@@ -69,5 +66,4 @@
 			<beans:bean class="com.sinzoro.common.common.SampleInterceptor"></beans:bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
 </beans:beans>
