@@ -44,12 +44,12 @@ public class GoogleLoginController {
 	/* 
 	 * make Google Login page URL : for return the code. 
 	 */
-	@RequestMapping(value = "/login/googleSingIn", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/googleSignIn", method = RequestMethod.GET)
 	public String googleSingIn() {
 	    OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 	    String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 	    logger.info("googleSingIn. url : {}", url);
-	    return url;
+	    return "redirect:"+url;
 	}
 	
     /* 

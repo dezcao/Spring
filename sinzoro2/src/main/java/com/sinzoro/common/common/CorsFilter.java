@@ -19,7 +19,7 @@ public class CorsFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 	    HttpServletResponse response = (HttpServletResponse) res;
-        response.setHeader("X-Frame-Options", "ALLOW-FROM http://58.151.24.166:8080");
+        response.setHeader("X-Frame-Options", "ALLOW-FROM http://localhost:8080");
 	    chain.doFilter(req, res);
 	}
 
