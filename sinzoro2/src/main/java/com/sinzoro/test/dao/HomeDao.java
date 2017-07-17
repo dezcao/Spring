@@ -1,10 +1,13 @@
 package com.sinzoro.test.dao;
 
 import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import com.sinzoro.test.vo.HomeVO;
+import com.sinzoro.test.vo.UserVO;
 
 @Repository
 public class HomeDao {
@@ -16,15 +19,19 @@ public class HomeDao {
 		return sqlSession.selectList("sql.zoro");
 	}
 
-	public HomeVO getUserByName(String username) {
+	public UserVO getUserByName(String username) {
 		return sqlSession.selectOne("sql.getUser", username);
 	}
 	
-	public int insertUser(HomeVO vo) {
+	public int getUserCountByName(String username) {
+		return sqlSession.selectOne("sql.getUserCount", username);
+	}
+	
+	public int insertUser(UserVO vo) {
 		return sqlSession.insert("sql.insertUser", vo);
 	}
 	
-	public int insertAuthority(HomeVO vo) {
+	public int insertAuthority(UserVO vo) {
 		return sqlSession.insert("sql.insertAuth", vo);
 	}
 	

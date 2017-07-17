@@ -54,7 +54,7 @@
             <span style="color: red;">e</span>
         </a>
         
-        <a href="<c:url value="/signUp"/>" class="btn btn-default btn-lg btn-block">Sign up</a>
+        <a href="<c:url value="/home/signUp"/>" class="btn btn-default btn-lg btn-block">Sign up</a>
       </form:form>
 
     </div> <!-- /container -->
