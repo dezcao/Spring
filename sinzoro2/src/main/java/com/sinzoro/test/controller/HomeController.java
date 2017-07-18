@@ -1,7 +1,9 @@
 package com.sinzoro.test.controller;
 
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.sinzoro.test.dao.BoardDao;
 import com.sinzoro.test.vo.BoardVO;
 
@@ -36,6 +39,12 @@ public class HomeController {
             case "/home/contact":
                 request.setAttribute("active_li", "contact_li");
                 break;
+            case "/home/signUp":
+            	request.setAttribute("active_li", "signUp_li");
+            	break;
+            case "/home/admin":
+            	request.setAttribute("active_li", "admin_li");
+            	break;
         }
 	}
 	
@@ -57,6 +66,18 @@ public class HomeController {
 	public String contact() {
 	    logger.info("Heare is contect.");
 	    return "/home/contact";
+	}
+	
+	@RequestMapping(value = "signUp", method = {RequestMethod.GET, RequestMethod.POST})
+	public String signUp() {
+		logger.info("Heare is signUp.");
+		return "/home/signUp";
+	}
+	
+	@RequestMapping(value = "admin", method = {RequestMethod.GET, RequestMethod.POST})
+	public String admin() {
+		logger.info("Heare is admin.");
+		return "/home/admin";
 	}
 	
 }

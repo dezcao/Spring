@@ -12,10 +12,10 @@
 	<div class="container">
 		
 		<c:if test="${not empty param.error }">
-		<h2>${SPRING_SECURITY_LAST_EXCEPTION.message }</h2>
+			<h2>${SPRING_SECURITY_LAST_EXCEPTION.message }</h2>
 		</c:if>
       
-      <form:form class="form-signin" id="loginForm" action="${loginUrl }" method="post">
+      <form:form class="form-signin" id="loginForm" action="" method="post">
 		 
         <h2 class="form-signin-heading">Sign in</h2>
         <h5 class="form-signin-heading">
@@ -45,7 +45,7 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         
-        <a href="<c:url value="/login/googleSingIn" />" class="btn btn-default btn-lg btn-block" style="max-height: 46px;">
+        <a href="<c:url value="/login/googleSignIn" />" class="btn btn-default btn-lg btn-block" style="max-height: 46px;">
             <span style="color: blue;">G</span>
             <span style="color: red;">o</span>
             <span style="color: orange;">o</span>
@@ -54,7 +54,7 @@
             <span style="color: red;">e</span>
         </a>
         
-        <a href="<c:url value="/signUp"/>" class="btn btn-default btn-lg btn-block">Sign up</a>
+        <a href="<c:url value="/home/signUp"/>" class="btn btn-default btn-lg btn-block">Sign up</a>
       </form:form>
 
     </div> <!-- /container -->

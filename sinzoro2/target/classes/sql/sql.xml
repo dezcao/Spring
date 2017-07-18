@@ -6,20 +6,24 @@
         SELECT * FROM zoro
     </select>
     
-    <select id="getUser" parameterType="java.lang.String" resultType="com.sinzoro.test.vo.HomeVO">
+    <select id="getUser" parameterType="java.lang.String" resultType="com.sinzoro.test.vo.UserVO">
         SELECT id, name, password FROM zoro WHERE name = #{username}
     </select>
     
-    <insert id="insertUser" parameterType="com.sinzoro.test.vo.HomeVO">
+    <select id="getUserCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT count(*) FROM zoro WHERE name = #{username}
+    </select>
+    
+    <insert id="insertUser" parameterType="com.sinzoro.test.vo.UserVO">
     	insert into zoro
     	(name, password)
     	values(#{name}, #{password})
     </insert>
     
-    <insert id="insertAuth" parameterType="com.sinzoro.test.vo.HomeVO">
+    <insert id="insertAuth" parameterType="com.sinzoro.test.vo.UserVO">
     	insert into authorities
     	(name, authority)
-    	values(#{name}, 'ROLE_USER')
+    	values(#{name}, #{authority})
     </insert>
     
 </mapper>

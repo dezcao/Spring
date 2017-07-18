@@ -37,8 +37,8 @@
 				<li><a href="http://getbootstrap.com/" target="_blank">bootstrap</a></li>
 			</ul>
 		</li>
-		<li id="signUp_li"><a href="<c:url value="/signUp" />">Sign Up</a></li>
-		<li id="admin_li"><a href="<c:url value="/admin" />">Admin</a></li>
+		<li id="signUp_li"><a href="<c:url value="/home/signUp" />">Sign Up</a></li>
+		<li id="admin_li"><a href="<c:url value="/home/admin" />">Admin</a></li>
 	</ul>
 		<form class="form-inline navbar-form navbar-right">
             <input type="text" class="form-control " placeholder="Search...">

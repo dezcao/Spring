@@ -1,10 +1,12 @@
 package com.sinzoro.test.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
 import com.sinzoro.test.dao.HomeDao;
 
 @Controller
@@ -44,12 +47,12 @@ public class GoogleLoginController {
 	/* 
 	 * make Google Login page URL : for return the code. 
 	 */
-	@RequestMapping(value = "/login/googleSingIn", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/googleSignIn", method = RequestMethod.GET)
 	public String googleSingIn() {
 	    OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 	    String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 	    logger.info("googleSingIn. url : {}", url);
-	    return url;
+	    return "redirect:"+url;
 	}
 	
     /* 
