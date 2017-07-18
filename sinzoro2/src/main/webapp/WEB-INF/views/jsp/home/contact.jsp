@@ -154,6 +154,12 @@
             <p>
             <b>1975년생. 남자. 부천. 미혼. 군필.</b><br>
             <b>프로그래머 경력 2년 6월.</b>
+            <span style="display: inline-block;">
+            <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+            <a href="<c:url value="/resources/custom/황재필_이력서.docx" />" download>
+            <span>황재필_이력서.docx</span>
+            </a>
+            </span>
             </p>
             </div>
         </div>
