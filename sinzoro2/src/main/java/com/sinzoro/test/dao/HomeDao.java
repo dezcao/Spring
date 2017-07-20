@@ -11,7 +11,6 @@ import com.sinzoro.test.vo.UserVO;
 
 @Repository
 public class HomeDao {
-
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
