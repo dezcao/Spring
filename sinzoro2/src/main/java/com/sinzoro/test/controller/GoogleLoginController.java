@@ -28,15 +28,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.sinzoro.test.dao.HomeDao;
-
 @Controller
 public class GoogleLoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(GoogleLoginController.class);
-
-	@Autowired
-	HomeDao homeDao;
 
 	@Autowired
 	private GoogleConnectionFactory googleConnectionFactory;

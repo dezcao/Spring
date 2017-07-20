@@ -40,9 +40,7 @@
 		<li id="signUp_li"><a href="<c:url value="/home/signUp" />">Sign Up</a></li>
 		<li id="admin_li"><a href="<c:url value="/home/admin" />">Admin</a></li>
 	</ul>
-		<form class="form-inline navbar-form navbar-right">
-            <input type="text" class="form-control " placeholder="Search...">
-        </form>
+		
         <c:choose>
             <c:when test="${displayName != null}">
                 <form class="form-inline navbar-form navbar-right" action="<c:url value="/logout" />" method="post">
@@ -70,12 +68,19 @@
 	<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 </div>
 
-<input type="hidden" value="${active_li }" id="active_li">
-
 <script>
 (function(){
-	var id = document.getElementById("active_li").value;
-	var active_li = document.getElementById(id);
-	active_li.className = "active";
+	var url = location.href;	
+	if (url.includes('/home/home')) {
+	    document.getElementById("home_li").className = "active";
+	} else if (url.includes('/home/board') || url.includes('/home/findOneBoard')) {
+		document.getElementById("board_li").className = "active";
+	} else if (url.includes('/home/contact')) {
+		document.getElementById("contact_li").className = "active";
+	} else if (url.includes('/home/signUp')) {
+		document.getElementById("signUp_li").className = "active";
+	} else if (url.includes('/home/admin')) {
+		document.getElementById("admin_li").className = "active";
+	}
 })();
 </script>

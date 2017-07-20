@@ -21,4 +21,10 @@ public class PageVO {
     private int startContent;
     private int perPage;
     
+    @Override
+    public String toString() {
+        return "PageVO [requirePage=" + requirePage + ", totalPage=" + totalPage + ", beginPage=" + beginPage
+                + ", endPage=" + endPage + ", startContent=" + startContent + ", perPage=" + perPage + "]";
+    }
+    
 }

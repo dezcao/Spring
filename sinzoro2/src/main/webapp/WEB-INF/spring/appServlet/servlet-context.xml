@@ -39,7 +39,7 @@
 	</beans:bean>
 	<beans:bean id="googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
 		<beans:property name="scope" value="https://www.googleapis.com/auth/plus.login"/>
-		<beans:property name="redirectUri" value="http://localhost:8080/login/oauth2callback" />
+		<beans:property name="redirectUri" value="http://spring4.mooo.com:8080/login/oauth2callback" />
 	</beans:bean>
 
 	<!-- Tiles -->
