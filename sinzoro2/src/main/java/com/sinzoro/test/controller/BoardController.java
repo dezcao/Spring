@@ -2,38 +2,83 @@ package com.sinzoro.test.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.sinzoro.test.dao.BoardDao;
+import com.sinzoro.test.service.BoardServiceImpl;
+import com.sinzoro.test.service.PageServiceImpl;
 import com.sinzoro.test.vo.BoardVO;
+import com.sinzoro.test.vo.PageVO;
 
 @Controller
 @RequestMapping("/home/*")
 public class BoardController {
     
+    private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+    
     @Autowired
-    BoardDao boardDao;
+    BoardServiceImpl service;
     
-    @RequestMapping("/insBoard")
-    public String ins(RedirectAttributes redirectAttributes, BoardVO boardVO) {
-        boardDao.insert(boardVO);
+    @Autowired
+    PageServiceImpl page_service;
+    
+    @RequestMapping(value="insBoard", method=RequestMethod.POST)
+    public String insBoard(BoardVO vo) {
+        service.insert(vo);
         return "redirect:/home/board";
     }
-    
-    @RequestMapping("/findOne")
-    public String findOne(RedirectAttributes redirectAttributes, @RequestParam("id") int id) {
-        redirectAttributes.addFlashAttribute("getBoardVO", boardDao.findOne(id));
-        return "redirect:/home/board";
+    @RequestMapping(value="uptBoard", method=RequestMethod.POST)
+    public String uptBoard(BoardVO vo, HttpServletRequest request) {
+        logger.info("uptBoard : {}", vo.toString());
+        if (service.checkPassword(vo) == 1) {
+            service.update(vo);
+            return "redirect:/home/board";
+        } else {
+            request.setAttribute("BoardVO", service.findOneById(vo.getId()));
+            request.setAttribute("msg", "패스워드가 틀렸습니다.");
+            return "/home/boardContent";
+        }
     }
     
-    @RequestMapping("/delete")
-    public String delete(HttpServletRequest request, @RequestParam("id") int id) {
-        request.setAttribute("getBoardVO", boardDao.delete(id));
-        return "redirect:/home/board";
+    @RequestMapping(value="delBoard", method=RequestMethod.POST)
+    public String delBoard(BoardVO vo, HttpServletRequest request) {
+        if (service.checkPassword(vo) == 1) {
+            service.delete(vo.getId());
+            return "redirect:/home/board";
+        } else {
+            request.setAttribute("BoardVO", service.findOneById(vo.getId()));
+            request.setAttribute("msg", "패스워드가 틀렸습니다.");
+            return "/home/boardContent";
+        }
     }
-   
+    
+    @RequestMapping(value="findOneBoard", method=RequestMethod.POST)
+    public ModelAndView findOneBoard(@RequestParam("id") int id, ModelAndView mv) {
+        mv.addObject("BoardVO", service.findOneById(id));
+        mv.setViewName("/home/boardContent");
+        return mv;
+    }
+    
+    @RequestMapping(value="board", method={RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView findAllBoard(PageVO pageVO, ModelAndView mv) {
+        
+        page_service.pagination(pageVO, service.countAll());
+            
+        mv.addObject("BoardList", service.findAllByPageVO(pageVO));
+        mv.addObject("PageVO", pageVO);
+        mv.setViewName("/home/board");
+        return mv;
+    }
+    
+    @RequestMapping(value="boardContent", method=RequestMethod.POST)
+    public String boardContent() {
+        return "/home/boardContent";
+    }
+    
 }

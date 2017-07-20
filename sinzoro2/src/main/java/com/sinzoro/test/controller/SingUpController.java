@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sinzoro.common.common.Authority;
@@ -23,13 +22,13 @@ public class SingUpController {
 
 	@Autowired
 	HomeDao homeDao;
-	/*
+	
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
 	public String signForm(Locale locale, Model model) {
 		logger.info("Thanks! Join us. {}", locale);
 		return "/home/signUp";
 	}
-	*/
+	
 	@RequestMapping(value = "/signUpInsert", method = RequestMethod.POST)
 	public String insert(UserVO vo, RedirectAttributes redirectAttr) {
 		logger.info("Go insert! {}", vo.getName());

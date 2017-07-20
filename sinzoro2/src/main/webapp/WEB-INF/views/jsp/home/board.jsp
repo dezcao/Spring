@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%-- <link href="<c:url value="/resources/smarteditor2/css/ko_KR/smart_editor2.css" />" rel="stylesheet" type="text/css"> --%>
-<script type="text/javascript" src="<c:url value="/resources/smarteditor2/js/service/HuskyEZCreator.js" />" charset="utf-8"></script>
 <style>
+/* http://craziers.com/%EB%A7%90%EC%A4%84%EC%9E%84-ellipsis-css/ */
 .p_text {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -17,7 +16,6 @@
     -webkit-box-orient:vertical;
     -webkit-line-clamp:3
 }
-/* http://craziers.com/%EB%A7%90%EC%A4%84%EC%9E%84-ellipsis-css/ */
 </style>
 <div class="jumbotron">
     <h1>Board</h1>
@@ -28,96 +26,79 @@
     <div class="panel-heading">일반 게시판</div>
     <div class="panel-body">
         <div class="clearfix">
-            <img src="https://c1.staticflickr.com/4/3207/2726134661_12e3494fe5_b.jpg" alt="gaver" class="pull-right col-sm-4 col-md-4 img-responsive">
-            <p>
-                Naver smarteditor2를 사용했다. 
-                <br> bootstrap과 css 충돌이 일어나고, 반응형 동작을 위해 스타일을 추가했으나 이상 현상이 있다.
-                <br> 현재는 글 지우기 밸리데이션과 페이지 같은건 없고, 그냥 읽고 쓰고 지운다.
-            </p>
-            <p>
-                    자바지기 님께 답메일을 받고 legacy프로젝트에서 진행하려던 개발 계획을 축소했다.
-                <br>spring-boot프로젝트로 심화 학습을 하며 다른 기능들을 붙여볼지 
-                <br>node.js나 python으로 해볼지 고민중이다. 
-                <br>node나 python은 불안하다, Java도 모르는데 다른데 눈돌리는게 맞는건지... 
-                
-            </p>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                              자바지기 님께 답메일을 받았다. 보낸메일을 삭제하려고 했는데 이미 답메일이 도착해 있었다. 으앜~
+                        <br>진로, security, social 구현 등 어려움을 토로했더니, 몇가지 사이트를 알려주셨다. 친절한 분이다.
+                        <br>spring-boot 프로젝트로된 사이트라서 spring-legacy 프로젝트에서 진행하려던 학습 계획을 잠시 중단했다. 
+                    </p>
+                    <p>
+                              현재는, spring-boot로 프로젝트를 다시 시작할지 node.js나 python으로 해볼지 고민중이다. 
+                        <br>Java도 갈길이 먼데 한눈을 파는것 같아서, 마음이 불안하다.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <figure class="figure">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/c/ca/Interstellar_soundtrack_album_cover.jpg" 
+                            class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption">Interstellar OST 코딩하면서 계속 듣는다.</figcaption>
+                    </figure>
+                </div>
+            </div>
         </div>
     </div>
+    
     <table class="table table-hover">
         <thead>
             <tr>
                 <th class="col-xs-1">#</th>
                 <th class="col-xs-7 text-overflow">content</th>
-                <th class="col-xs-2">info</th>
-                <th class="col-xs-2">control</th>
+                <th class="col-xs-2">writer</th>
+                <th class="col-xs-2">date</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${boardList}" var="boardVO" varStatus="status">
+            <c:forEach items="${BoardList}" var="boardVO" varStatus="status">
                 <tr>
                     <th scope="row">${status.count}</th>
                     <td class="text" onclick="findOne('${boardVO.id}')">
                         <div class="p_text">
                             <input type="hidden" id="content_${boardVO.id }" value="${boardVO.board_content}">
                             <script>
-                            	document.write(document.getElementById("content_"+${boardVO.id}).value);
+                            	document.write(document.getElementById( "content_" + ${ boardVO.id } ).value);
                     		</script>
                         </div>
                     </td>
-                    <td><fmt:formatDate value="${boardVO.insDate}" type="date" />, ${boardVO.writer}</td>
-                    <td>a heng heng</td>
+                    <td>${boardVO.writer}</td>
+                    <td><fmt:formatDate value="${boardVO.insDate}" type="date" /></td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
 </div>
 
-<div class="page-header">
-    <h4>- Naver smarteditor Version: 2.9.0.4a256db 적용.</h4>
-    <form class="form-inline" action="<c:url value="/home/insBoard" />" method="post" id="insBoardForm">
-        <textarea name="board_content" id="board_content" class="form-control" style='width: 100%; min-width: 150px; height: 30em; display: none;'>
-            ${getBoardVO.board_content}
-        </textarea>
-        <div class="form-group">
-            <label for="InputName1">Writer</label> <input type="text" class="form-control" id="InputName1" placeholder="Jane Doe" name="writer">
-        </div>
-        <div class="form-group">
-            <label for="InputPassword1">Password</label> <input type="password" class="form-control" id="InputPassword1" name="password">
-        </div>
-        <button type="button" class="btn btn-default" id="savebutton">Save</button>
-        <button type="button" class="btn btn-default" id="deletebutton" onclick="deleteOne('${getBoardVO.id}')">Delete</button>
-    </form>
+<form action="<c:url value='/home/boardContent'/>" method="post">
+    <button type="submit" class="btn btn-default" id="writeButton">글쓰기</button>
+</form>
+
+<div class="paging text-center">
+	<nav aria-label="...">
+	  <ul class="pagination" >
+	    <li class="${PageVO.beginPage == 1 ? 'disabled' : '' }"><a href="<c:url value='/home/board?requirePage=${PageVO.beginPage == 1 ? PageVO.requirePage : PageVO.beginPage - PageVO.perPage}'/>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+	        <c:forEach begin="${PageVO.beginPage }" end = "${PageVO.endPage }" varStatus="status">
+	            <li class='${PageVO.requirePage==status.index?"active":""}' ><a href="<c:url value='/home/board?requirePage=${status.index}'/>"> ${status.index} <span class="sr-only"> </span></a></li>
+	        </c:forEach>
+	    <li class="${PageVO.endPage == PageVO.totalPage ? 'disabled' : '' }"><a href="<c:url value='/home/board?requirePage=${PageVO.endPage < PageVO.totalPage ? PageVO.endPage + 1 : PageVO.requirePage}'/>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+	  </ul>
+	</nav>
 </div>
 
-<form id="findForm" action="<c:url value="/home/findOne" />" method="post" style="display: none;">
+<form id="findForm" action="<c:url value="/home/findOneBoard" />" method="post" style="display: none;">
     <input type="number" id="find_id" name="id">
 </form>
 
-<form id="deleteForm" action="<c:url value="/home/delete" />" method="post" style="display: none;">
-    <input type="number" id="delete_id" name="id">
-</form>
-
-
 <script>
-	var oEditors = [];
-	nhn.husky.EZCreator
-			.createInIFrame({
-				oAppRef : oEditors,
-				elPlaceHolder : "board_content",
-				sSkinURI : "${pageContext.request.contextPath}/resources/smarteditor2/SmartEditor2Skin.html",
-				fCreator : "createSEditor2"
-			});
-	
-	$("#savebutton").click(function() {
-		oEditors.getById["board_content"].exec("UPDATE_CONTENTS_FIELD", []);
-		$("#insBoardForm").submit();
-	});
-	
-	function deleteOne(id) {
-		document.getElementById("delete_id").value = id;
-		$("#deleteForm").submit();
-	}
-
 	function findOne(id) {
 		document.getElementById("find_id").value = id;
 		$("#findForm").submit();
