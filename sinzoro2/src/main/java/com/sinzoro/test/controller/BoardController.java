@@ -23,10 +23,10 @@ public class BoardController {
     private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
     
     @Autowired
-    BoardServiceImpl service;
+    private BoardServiceImpl service;
     
     @Autowired
-    PageServiceImpl page_service;
+    private PageServiceImpl page_service;
     
     @RequestMapping(value="insBoard", method=RequestMethod.POST)
     public String insBoard(BoardVO vo) {
