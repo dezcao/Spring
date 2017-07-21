@@ -53,5 +53,4 @@ public class CommonServiceImpl<T> implements CommonService<T> {
         return commonDao.delete(Id);
     }
 
-
 }
