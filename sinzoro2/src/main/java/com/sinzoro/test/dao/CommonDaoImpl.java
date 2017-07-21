@@ -1,6 +1,5 @@
 package com.sinzoro.test.dao;
 
-
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -17,7 +16,7 @@ import com.sinzoro.test.vo.PageVO;
 public abstract class CommonDaoImpl<T extends Serializable> implements CommonDao<T> {
 
     @Autowired
-    private SqlSessionTemplate sqlSession;
+    protected SqlSessionTemplate sqlSession;
     
     protected Class<? extends T> daoType;
     
