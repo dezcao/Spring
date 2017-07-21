@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sinzoro.test.service.BoardServiceImpl;
+import com.sinzoro.test.service.BoardService;
 import com.sinzoro.test.service.PageServiceImpl;
 import com.sinzoro.test.vo.BoardVO;
 import com.sinzoro.test.vo.PageVO;
@@ -23,7 +23,7 @@ public class BoardController {
     private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
     
     @Autowired
-    private BoardServiceImpl service;
+    private BoardService service;
     
     @Autowired
     private PageServiceImpl page_service;

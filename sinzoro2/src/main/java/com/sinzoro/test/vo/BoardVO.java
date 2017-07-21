@@ -1,14 +1,20 @@
 package com.sinzoro.test.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class BoardVO {
+public class BoardVO implements Serializable {
 	
-	int id;
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 2718980056309836856L;
+    
+    int id;
 	String board_content;
 	String password;
 	String writer;

@@ -1,16 +1,20 @@
 package com.sinzoro.test.dao;
 
+
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.sinzoro.test.vo.PageVO;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
-public abstract class CommonDaoImpl<T> implements CommonDao<T> {
+@Repository
+public abstract class CommonDaoImpl<T extends Serializable> implements CommonDao<T> {
 
     @Autowired
     private SqlSessionTemplate sqlSession;
