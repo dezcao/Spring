@@ -7,4 +7,4 @@
     - XSS Filter, google login(security), board
 
 ### 실행 필수
-    - lombokt설치, h2db실행
+    - lombokt install, h2db start
