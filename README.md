@@ -5,3 +5,7 @@
 
 ### 구현기능
     - XSS Filter, google login(security), board
+
+### 실행 필수
+    - lombokt설치
+    - h2db
