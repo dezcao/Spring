@@ -6,5 +6,5 @@
 ### 구현기능
     - XSS Filter, google login(security), board
 
-### 실행 필수
-    - lombokt install, h2db start
+### 실행필수
+    - lombok install, h2db start
