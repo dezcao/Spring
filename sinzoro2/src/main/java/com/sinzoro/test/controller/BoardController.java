@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sinzoro.common.common.Message;
 import com.sinzoro.test.service.BoardService;
 import com.sinzoro.test.service.PageServiceImpl;
 import com.sinzoro.test.vo.BoardVO;
@@ -41,7 +42,7 @@ public class BoardController {
             return "redirect:/home/board";
         } else {
             request.setAttribute("BoardVO", service.findOneById(vo.getId()));
-            request.setAttribute("msg", "패스워드가 틀렸습니다.");
+            request.setAttribute("msg", Message.WRONG_PASSWORD);
             return "/home/boardContent";
         }
     }
@@ -53,7 +54,7 @@ public class BoardController {
             return "redirect:/home/board";
         } else {
             request.setAttribute("BoardVO", service.findOneById(vo.getId()));
-            request.setAttribute("msg", "패스워드가 틀렸습니다.");
+            request.setAttribute("msg", Message.WRONG_PASSWORD);
             return "/home/boardContent";
         }
     }

@@ -17,6 +17,7 @@
     -webkit-line-clamp:3
 }
 </style>
+
 <div class="jumbotron">
     <h1>Board</h1>
 </div>
@@ -27,23 +28,8 @@
     <div class="panel-body">
         <div class="clearfix">
             <div class="row">
-                <div class="col-md-8">
-                    <p>
-                              자바지기 님께 답메일을 받았다. 보낸메일을 삭제하려고 했는데 이미 답메일이 도착해 있었다. 으앜~
-                        <br>진로, security, social 구현 등 어려움을 토로했더니, 몇가지 사이트를 알려주셨다. 친절한 분이다.
-                        <br>spring-boot 프로젝트로된 사이트라서 spring-legacy 프로젝트에서 진행하려던 학습 계획을 잠시 중단했다. 
-                    </p>
-                    <p>
-                              현재는, spring-boot로 프로젝트를 다시 시작할지 node.js나 python으로 해볼지 고민중이다. 
-                        <br>Java도 갈길이 먼데 한눈을 파는것 같아서, 마음이 불안하다.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <figure class="figure">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/c/ca/Interstellar_soundtrack_album_cover.jpg" 
-                            class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                        <figcaption class="figure-caption">Interstellar OST 코딩하면서 계속 듣는다.</figcaption>
-                    </figure>
+                <div class="col-md-12">
+                <p>pagenation.</p>
                 </div>
             </div>
         </div>

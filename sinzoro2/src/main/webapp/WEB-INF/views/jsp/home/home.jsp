@@ -21,5 +21,3 @@
 <div class="embed-responsive embed-responsive-16by9">
     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ks-_Mh1QhMc" frameborder="0" allowfullscreen></iframe>
 </div>
-<h5><strong>이 아주머니 때문에, 포기하려던 프로그래밍을 다시 시작했다. "난 여기 어울리지 않아요." 나와 똑같았다.</strong></h5>
-<h6><del>각선미 때문에.. 퍽퍽</del> 기운이 빠질땐 가끔 본다.</h6>

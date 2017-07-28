@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sinzoro.common.common.Message;
+
 @Controller
 public class LoginController {
 
@@ -22,11 +24,11 @@ public class LoginController {
         logger.info("Welcome login.");
 
         if (error != null) {
-            model.addObject("error", "Invalid username and password!");
+            model.addObject("error", Message.WRONG_PASSWORD);
         }
 
         if (logout != null) {
-            model.addObject("msg", "You've been logged out successfully.");
+            model.addObject("msg", Message.LOGOUT_SUCCESS);
         }
 
         model.setViewName("login");

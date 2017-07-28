@@ -9,8 +9,8 @@ public class PageServiceImpl implements PageService<PageVO> {
 
     /**
      * default setting :
-     * ÆäÀÌÁö¿¡ ÇÒ´çµÉ ÄÁÅÙÃ÷¼ö = 5, 
-     * ÇÏ´Ü¿¡ ½ºÇÁ·¹µåµÉ ÆäÀÌÁö·® = 5
+     * í˜ì´ì§€ì— í• ë‹¹ë  ì»¨í…ì¸ ìˆ˜ = 5, 
+     * í•˜ë‹¨ì— ìŠ¤í”„ë ˆë“œë  í˜ì´ì§€ëŸ‰ = 5
     */
     @Override
     public void pagination(PageVO pageVO, int totalCount) {
@@ -19,13 +19,13 @@ public class PageServiceImpl implements PageService<PageVO> {
 
     @Override
     public void pagination(PageVO pageVO, int totalCount, int pageContents, int perPage) {
-        int requirePage = pageVO.getRequirePage(); // ¿äÃ»ÇÑ ÆäÀÌÁö, PageVO ±âº»°ª = 1.        
-        int totalPage = (totalCount%pageContents == 0 ? totalCount/pageContents : totalCount/pageContents+1); // ÀüÃ¼ ÆäÀÌÁö ¼ö = (ÄÁÅÙÃ÷ÃÑ¼ö%ÆäÀÌÁö¿¡ÇÒ´çµÈÄÁÅÙÃ÷¼ö == 0 ? ³ª´« ¸ò : ¸ò +1)
-        int beginPage = (requirePage == perPage ? 1 : (requirePage - requirePage%perPage + 1)); // ÆäÀÌÁö³×ÀÌ¼Ç ½ÃÀÛ¹øÈ£ = ¿äÃ»ÇÑÆäÀÌÁö¹øÈ£ - ¿äÃ»ÇÑÆäÀÌÁö¹øÈ£¸¦ È­¸é¿¡ ½ºÇÁ·¹µåµÉ ÆäÀÌÁö·®À¸·Î ³ª´« ³ª¸ÓÁö + 1
-        int flag = beginPage + perPage - 1; // ÀÓ½Ã°ª(³¡¹øÈ£·Î ÁüÀÛµÇ´Â °ª) = ÆäÀÌÁö³×ÀÌ¼Ç ½ÃÀÛ¹øÈ£ + ½ºÇÁ·¹µåµÉ ÆäÀÌÁö·® - 1
-        int endPage = flag > totalPage ? totalPage : flag; // ÆäÀÌÁö³×ÀÌ¼Ç ³¡¹øÈ£ = ÀÓ½Ã°ªÀÌ ÀüÃ¼ ÆäÀÌÁö¸¦ ³ÑÀ¸¸é ÀüÃ¼ÆäÀÌÁö °ªÀÌ ³¡¹øÈ£¸¦ Â÷Áö. ±×·¸Áö ¾ÊÀ¸¸é ÀÓ½Ã°ªÀ» ÇØ´ç ÆäÀÌÁö³×ÀÌ¼ÇÀÇ ³¡¹øÈ£·Î ÇÔ.
-        beginPage = beginPage > endPage ? endPage : beginPage;
-        int startContent = pageContents*requirePage-pageContents; // limit query ½ÃÀÛÇÒ ÄÁÅÙÃ÷ÀÇ ¼ø¹ø = ÆäÀÌÁö¿¡ÇÒ´çµÈÄÁÅÙÃ÷¼ö*¿äÃ»ÇÑÆäÀÌÁö¹øÈ£-ÆäÀÌÁö¿¡ÇÒ´çµÈÄÁÅÙÃ÷¼ö
+        int requirePage = pageVO.getRequirePage(); // ìš”ì²­í•œ í˜ì´ì§€, PageVO ê¸°ë³¸ê°’ = 1.       
+        int totalPage = (totalCount%pageContents == 0 ? totalCount/pageContents : totalCount/pageContents+1); // ì „ì²´ í˜ì´ì§€ ìˆ˜ = (ì»¨í…ì¸ ì´ìˆ˜%í˜ì´ì§€ì—í• ë‹¹ëœì»¨í…ì¸ ìˆ˜ == 0 ? ë‚˜ëˆˆ ëª« : ëª« +1)
+        int beginPage = (requirePage == perPage ? 1 : (requirePage - requirePage%perPage + 1)); // í˜ì´ì§€ë„¤ì´ì…˜ ì‹œì‘ë²ˆí˜¸ = ìš”ì²­í•œí˜ì´ì§€ë²ˆí˜¸ - ìš”ì²­í•œí˜ì´ì§€ë²ˆí˜¸ë¥¼ í™”ë©´ì— ìŠ¤í”„ë ˆë“œë  í˜ì´ì§€ëŸ‰ìœ¼ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ + 1
+        int flag = beginPage + perPage - 1; // ì„ì‹œê°’(ëë²ˆí˜¸ë¡œ ì§ì‘ë˜ëŠ” ê°’) = í˜ì´ì§€ë„¤ì´ì…˜ ì‹œì‘ë²ˆí˜¸ + ìŠ¤í”„ë ˆë“œë  í˜ì´ì§€ëŸ‰ - 1
+        int endPage = flag > totalPage ? totalPage : flag; // í˜ì´ì§€ë„¤ì´ì…˜ ëë²ˆí˜¸ = ì„ì‹œê°’ì´ ì „ì²´ í˜ì´ì§€ë¥¼ ë„˜ìœ¼ë©´ ì „ì²´í˜ì´ì§€ ê°’ì´ ëë²ˆí˜¸ë¥¼ ì°¨ì§€. ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ì„ì‹œê°’ì„ í•´ë‹¹ í˜ì´ì§€ë„¤ì´ì…˜ì˜ ëë²ˆí˜¸ë¡œ í•¨.
+        beginPage = beginPage > endPage ? endPage : beginPage; // ë³´ì •
+        int startContent = pageContents*requirePage-pageContents; // limit query ì‹œì‘í•  ì»¨í…ì¸ ì˜ ìˆœë²ˆ = í˜ì´ì§€ì—í• ë‹¹ëœì»¨í…ì¸ ìˆ˜*ìš”ì²­í•œí˜ì´ì§€ë²ˆí˜¸-í˜ì´ì§€ì—í• ë‹¹ëœì»¨í…ì¸ ìˆ˜
         // calculate done...
         pageVO
             .setRequirePage(requirePage)
@@ -33,7 +33,7 @@ public class PageServiceImpl implements PageService<PageVO> {
             .setBeginPage(beginPage)
             .setEndPage(endPage)
             .setStartContent(startContent)
-            .setPerPage(perPage); // limit query µÎ¹øÂ° ÇÒ´çÀÎÀÚ = perPage
+            .setPerPage(perPage); // limit query ë‘ë²ˆì§¸ í• ë‹¹ì¸ì = perPage
     }
     
 

@@ -41,29 +41,27 @@
                 <h3 class="panel-title">Employment History</h3>
             </div>
             <div class="panel-body">
-                <p><b>2016.10-2017.3 * 아이비즈소프트웨어 개발팀 대리.</b></p>
+                <h4><b>2015.10 ~ 2017.3 : 아이비즈소프트웨어 개발팀 대리.</b></h4>
                     <ul>
-                        <li><b>2017.10 - SK C&C Swing project</b>
+                        <li><b>2016.10 ~ 2017.3 : SK C&C Swing project</b>
                             <ul>
-                                <li>오류게시판을 대신하여 게시판, 관련 테이블 새로구성
+                                <li>게시판
                                     <ul>
                                         <li>XSS Filter, File Upload, Download</li>
                                     </ul>
                                 </li>
-                                <li>기타 화면개발</li>
-                                <li>팀 주요 안건 : spring 프로젝트로 변환된 구성에 맞게 legacy 사이트 리뉴얼.
+                                <li>관리자화면
                                     <ul>
-                                        <li>업무 복잡도에 비해 리뷰가 불충분 하여, 화면에서 불필요한 코드와 필요한 코드를 구분하기 어려웠음.</li>
-                                        <li>장기, 다수 프로그래머를 거치며 코드가 난잡해짐. (예, 변수 초기화 후 1천줄에 걸쳐 boolean값을 반복적으로 할당하다가 아무것도 안하고 방치.)</li>
-                                        <li>explorer9 이외에선 무조건 화면이 깨지며, HTML에 Style 범벅인 기존의 디자인과 비슷한 로직이 도처에 copy&paste로 엉킨 코드.</li>
-                                        <li>팀내에 코딩 리더가 없고, 과업지향적 리더는 일정지연을 심각하게 우려. 결국 explorer9 기준의 화면 양도.</li>
+                                        <li>오래된 코드 리팩토링.</li>
+                                        <li>스크립트 오동작 페이지 수정.</li>
+                                        <li>spring framework 적용됨에 따라 back-end 수정.</li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <ul>
-                        <li><b>2017.5 - KT Music dovido 서버API, 관리페이지</b>
+                        <li><b>2016.5 ~ 2016.9 : KT Music dovido</b>
                             <ul>
                                 <li>
                                     <a href="http://blog.kt.com/590" target="_black">
@@ -72,29 +70,29 @@
                                     </a>
                                 </li>
                                 <li>Spring-Boot, Hibernate, JPA, Java8, GIT.</li>
-                                <li>팀 주요 안건 : 실험적 프로젝트로 동영상 편집앱을 빠르게 만들어 낸다. dovido 앱은 현재 앱스토어에서 사라짐.
+                                <li>Server API, 관리자 화면
                                     <ul>
-                                        <li>윗선의 전시 행정 - 계획에 없던 관리페이지 수십본 등장. 서버측 개발자 전원 투입.</li>
-                                        <li>아래에서 위로의 소통 부재 - 최초 기획자 의도와 성격이 다르게 진행.</li>
-                                        <li>말단 구성원들의 안일함 - 말해 봤지만 우리 조직은 소용없다. 어쨓든, 나는 책임을 다했다.</li>
+                                        <li>my-album list</li>
+                                        <li>facebook link page</li>
+                                        <li>Q&A, FAQ</li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <ul>
-                        <li><b>2016.12 - CJ E&M 음원저작권 관리 업무지원</b>
+                        <li><b>2015.12 ~ 2016.5 : CJ E&M 음원저작권 관리 프로젝트 지원</b>
                             <ul>
-                                <li>개별임무 : 대용량 Excel file parsing
+                                <li>대용량 Excel file parsing
                                     <ul>
-                                        <li>Apache POI API 사용하여 완수.</li>
+                                        <li>Apache POI API 사용.</li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <ul>
-                        <li><b>2016.11 - 기정원(경영혁신플랫폼) 내부 화면개발</b>
+                        <li><b>2015.11 ~ 2015.12 : 기정원(경영혁신플랫폼) 화면개발</b>
                             <ul>
                                 <li>
                                     <a href="https://www.smplatform.go.kr/svp/common/index.do" target="_black">
@@ -105,7 +103,8 @@
                             </ul>
                         </li>
                     </ul>
-                <p><b>2015.10-2016.10 * PNP 개발팀 팀원.</b></p>
+                <hr>
+                <h4><b>2014.10 ~ 2015.10 : PNP 개발팀 팀원.</b></h4>
                     <ul>
                         <li><b>팀 주요 안건 : 토론 관련 커뮤니티 사이트</b>
                         <li><b>개별임무 : 쇼핑몰 페이지 구성, 쇼핑몰 아이템 구상</b>
@@ -119,7 +118,8 @@
                             </ul>
                         </li>
                     </ul>
-                <p><b>2002-2015 * 선물옵션증거금대출, 공인중개사, 전화상담원, 경비원</b></p>
+                <hr>
+                <h4><b>2002-2014 * 선물옵션증거금대출, 기타</b></h4>
             </div>
         </div>
         <div class="panel panel-primary">
@@ -128,7 +128,7 @@
             </div>
             <div class="panel-body">
                 <p>2002. 건국대학교(서울) 경영학과 졸업 (3.7/4.5)
-                <p>2015. 경영기술개발원 Java 과정 수료
+                <p>2014. 경영기술개발원 Java 과정 수료
             </div>
         </div>
         <div class="panel panel-primary">

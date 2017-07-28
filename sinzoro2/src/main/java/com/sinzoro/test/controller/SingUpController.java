@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sinzoro.common.common.Authority;
+import com.sinzoro.common.common.Message;
 import com.sinzoro.test.dao.HomeDao;
 import com.sinzoro.test.vo.UserVO;
 
@@ -39,13 +40,11 @@ public class SingUpController {
 			homeDao.insertAuthority(vo);
 			return "redirect:/login";
 		} else {
-			redirectAttr.addFlashAttribute("msg", "중복아이디 입니다.");
+			redirectAttr.addFlashAttribute("msg", Message.DUPICATE_USER);
 			return "redirect:/home/signUp";
 		}
 	}
 	
-	
-	// 으아 서비스... 안만들었더니이~
 	public boolean checkUser(String username) {
 		if (homeDao.getUserCountByName(username) > 0) {
 			return false;

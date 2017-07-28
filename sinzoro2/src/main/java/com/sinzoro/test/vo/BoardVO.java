@@ -9,9 +9,6 @@ import lombok.Setter;
 @Getter @Setter
 public class BoardVO implements Serializable {
 	
-	/**
-     * 
-     */
     private static final long serialVersionUID = 2718980056309836856L;
     
     int id;
