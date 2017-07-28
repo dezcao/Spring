@@ -8,3 +8,13 @@
 
 ### 실행필수
     - lombok install, h2db start
+
+| home  | board |
+| ------------- | ------------- |
+| <img src="https://github.com/dezcao/Spring/blob/master/sinzoro2/src/main/webapp/resources/custom/img/home.png?raw=true" width="310px" height="310px" />  | <img src="https://github.com/dezcao/Spring/blob/master/sinzoro2/src/main/webapp/resources/custom/img/board.png?raw=true" width="310px" height="310px" />  |
+
+
+| board_content  | admin |
+| ------------- | ------------- |
+| <img src="https://github.com/dezcao/Spring/blob/master/sinzoro2/src/main/webapp/resources/custom/img/board_content.png?raw=true" width="310px" height="310px" />  | <img src="https://github.com/dezcao/Spring/blob/master/sinzoro2/src/main/webapp/resources/custom/img/admin.png?raw=true" width="310px" height="310px" />  |
+    
